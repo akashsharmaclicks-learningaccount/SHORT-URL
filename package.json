@@ -5,9 +5,9 @@
   "scripts": {
     "start": "nodemon index.js"
   },
-  "author": "",
+  "author": "Akash Sharma",
   "license": "ISC",
-  "description": "",
+  "description": "An application that converts long URLs into short, shareable links with customizable options and detailed analytics.",
   "dependencies": {
     "express": "^4.21.2",
     "mongoose": "^8.12.1",

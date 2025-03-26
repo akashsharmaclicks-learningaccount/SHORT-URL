@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+<h1>URL Shortner</h1>
+<% if (locals.id) { %>
+    <p>Your short URL is: <a href="/<%= locals.id %>">http://localhost:3000/<%= locals.id %></a></p>
+<% } %>
+<div>
+    <form method="post" action="/url/">
+        <label>Enter your original URL</label>
+        <input type="text" name="url" id="redirectUrl" placeholder="https://www.example.com" required>
+        <button type="submit">Generate</button>
+    </form>
+</div>
+<div>
+    <% if (locals.urls) { %>
+       <table>
+        <thead>
+            <tr>
+            <th>S.No</th>
+            <th>ShortID</th>
+            <th>Redirect</th>
+            <th>Clicks</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% urls.forEach((url, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= url.shortId %></td>
+                    <td><%= url.redirectUrl %></td>
+                    <td><%= url.visitHistory.length %></td>
+                </tr>
+                <% }) %>
+        </tbody>
+       </table>
+       <% } %>
+    </div>
+</body>
+</html>
